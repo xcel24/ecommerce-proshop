@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './screens/Home';
-import Product from './screens/Product';
+import ProductDetails from './screens/ProductDetails';
 import Cart from './screens/Cart';
 import Signin from './screens/Signin';
 import Signup from './screens/Signup';
@@ -14,7 +14,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Navbar />}>
         <Route index element={<Home />} />
-        <Route path='product/:id' element={<Product />} />
+        <Route path='product/:id' element={<ProductDetails />} />
         <Route path='cart' element={<Cart />} />
         <Route path='shipping' element={<Shipping />} />
         <Route path='payment' element={<Payment />} />
