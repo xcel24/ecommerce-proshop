@@ -1,4 +1,4 @@
-import { useSearchParams, Link, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import products from '../products-and-images/products';
 import { useEffect, useState } from 'react';
 
@@ -89,16 +89,18 @@ const ProductDetails = () => {
               </select>
             </li>
             <li className='py-8 text-gray-500'>
-              <button
-                className={`w-full p-4 rounded-lg mt-6 ${
-                  product.countInStock === 0
-                    ? 'bg-gray-300 text-black'
-                    : 'bg-gray-800 text-white  hover:bg-gray-300 hover:text-gray-800'
-                }  `}
-                disabled={product.countInStock === 0}
-              >
-                Add to Cart
-              </button>
+              <Link to={'/cart'}>
+                <button
+                  className={`w-full p-4 rounded-lg mt-6 ${
+                    product.countInStock === 0
+                      ? 'bg-gray-300 text-black'
+                      : 'bg-gray-800 text-white  hover:bg-gray-300 hover:text-gray-800'
+                  }  `}
+                  disabled={product.countInStock === 0}
+                >
+                  Add to Cart
+                </button>
+              </Link>
             </li>
           </ul>
         </div>

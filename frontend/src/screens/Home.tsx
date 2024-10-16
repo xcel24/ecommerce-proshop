@@ -5,7 +5,7 @@ const Home = () => {
   console.log(products);
 
   return (
-    <div className='border-2 border-red-400'>
+    <div>
       <div className='w-4/5  mx-auto p-4'>
         <div className='h-96'>Hero Component</div>
         <h1 className='text-5xl text-gray-500 mt-4'>Latest Products</h1>

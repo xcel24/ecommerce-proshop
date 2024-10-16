@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import { RxTriangleDown } from 'react-icons/rx';
 import { FaCartShopping } from 'react-icons/fa6';
 import logo from '../assets/logo.png';
@@ -8,10 +8,13 @@ const Navbar = () => {
     <>
       <div className='bg-gray-600 flex items-center h-36 sticky top-0 z-50'>
         <div className='w-4/5 flex p-4  mx-auto items-center justify-between text-gray-200 font-sans'>
-          <div className='text-3xl font-bold flex items-center'>
-            <img src={logo} alt='Proshop' />
-            <h2 className='font-normal ml-2'>Proshop</h2>
-          </div>
+          <Link to={'/'}>
+            <div className='text-3xl font-bold flex items-center'>
+              <img src={logo} alt='Proshop' />
+              <h2 className='font-normal ml-2'>Proshop</h2>
+            </div>
+          </Link>
+
           <div className='flex  w-2/4 justify-end items-center py-2 font-semibold'>
             <input
               type='text'
