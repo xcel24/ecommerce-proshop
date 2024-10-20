@@ -1,5 +1,4 @@
 import { Link, useParams } from 'react-router-dom';
-import products from '../products-and-images/products';
 import { useEffect, useState } from 'react';
 
 type ProductType = {
@@ -20,11 +19,28 @@ const ProductDetails = () => {
 
   const { id } = useParams<{ id: string }>();
 
-  console.log(id);
+  const getAllOptionValues = (n: number) => {
+    return (
+      <>
+        {Array.from({ length: n }, (_, i) => (
+          <option key={i + 1} value={i + 1}>
+            {i + 1}
+          </option>
+        ))}
+      </>
+    );
+  };
 
   useEffect(() => {
-    const filterProduct = products.find((p) => p._id === id);
-    if (filterProduct) setProduct(filterProduct);
+    fetch(`http://localhost:5006/api/v1/products/${id}`)
+      .then(async (res) => {
+        const data = await res.json();
+
+        setProduct(data.product);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }, [id]);
 
   return (
@@ -80,12 +96,7 @@ const ProductDetails = () => {
                 className='px-4 py-2 border-b-2 border-gray-400 outline-none'
                 disabled={product.countInStock === 0}
               >
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-                <option value='5'>5</option>
-                <option value='6'>6</option>
+                {getAllOptionValues(product.countInStock)}
               </select>
             </li>
             <li className='py-8 text-gray-500'>

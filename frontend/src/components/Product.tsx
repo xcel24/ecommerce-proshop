@@ -14,6 +14,8 @@ type ProductType = {
 };
 
 const Product = ({ product }: { product: ProductType }) => {
+  console.log('I am here');
+  console.log(product);
   return (
     <div className='bg-white shadow-xl rounded-lg p-4 '>
       <Link to={`/product/${product._id}`}>
